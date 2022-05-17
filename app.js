@@ -25,10 +25,7 @@ app.get('/', (req, res) => {
 //Show內頁
 //動態路由params
 app.get('/movies/:movie_id', (req, res) => {
-    
-    const movie = movieList.results.filter(function(movie){
-        return movie.id == req.params.movie_id
-    })
+    const movie = movieList.results.filter(movie => movie.id == req.params.movie_id)
 
     console.log('movie', movie)
     res.render('show', { movie: movie[0] })
